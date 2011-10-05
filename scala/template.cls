@@ -27,7 +27,7 @@
 \LoadClass[numbers=noenddot]{scrreprt} % report better for pdf 
 
 
-\usepackage[ngerman,british]{babel}
+\usepackage[ngerman]{babel}
 \usepackage{etex}
 \usepackage{tocbasic}
 \usepackage[utf8x]{inputenc}
@@ -239,17 +239,17 @@
         \sffamily{\bfseries{ \Huge \@title}}
         \vspace{0.6cm}
         \small \\
-        A Bachelor Thesis presented to the Division of Computer Science\\ Department of Engineering and Information Technology, Bern University of Applied Sciences \\
+        Eine Seminararbeit an der Berner Fachhochschule Abteilung Technik und Informatik \\
         \vspace{0.1cm}
-        Presented by \@author\\
-        Supervised by Professor Olivier Biberstein, PhD\symbolfootnote[3]{\href{mailto:olivier.biberstein@bfh.ch}{olivier.biberstein@bfh.ch}}\\
+        von \@author\\
+        betreut von Professor Rolf Haenni\symbolfootnote[3]{\href{mailto:rolf.haenni@bfh.ch}{rolf.haenni@bfh.ch}}\\
         \vspace{0.2cm}
         \@date
         \vspace{0.5cm}
     \hrule
     \end{flushright}
 		\vfill
-    \includegraphics[height=\baselineskip]{imgs/by-sa}\\ \small{\sffamily{Licensed under the Creative Commons Attribution-ShareAlike 3.0 License}}
+    %\includegraphics[height=\baselineskip]{imgs/by-sa}\\ \small{\sffamily{Licensed under the Creative Commons Attribution-ShareAlike 3.0 License}}
     \end{titlepage}
 }
 
