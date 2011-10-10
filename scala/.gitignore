@@ -16,3 +16,4 @@ scala-print.*
 scala-web.*
 !metauml_*.mp
 !scala.tex
+!scala.bib
