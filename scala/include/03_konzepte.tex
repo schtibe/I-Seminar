@@ -1,19 +1,66 @@
 \chapter{Konzepte}
 
+\section{Variablen}
+
+
+
 \section{Objektorientierung}
 
-- Alles sind objekte
-- "object" kreiert ein Singleton Objekt (klasse *und* Instanz)
-- Static gibts nicht -> Singleton
+\subsection{Singleton-Objekte}
 
-- Getter methoden für Klassenvariablen
+Da Scala eine Objektorientierte Programmiersprache ist, können nebst
+den eingebauten Datentypen (\ref{sec:datatypes}) auch Klassen oder
+Objekte definiert werden. Klassen haben die gleiche Funktionalität
+wie in Java, mehr dazu unter \ref{sec:classes}.  Anders als in Java
+ist die Möglichkeit, direkt Objekte zu definieren.  Dies kann mit dem
+\emph{object}-Keyword erreicht werden, und entspricht dem Konzept des
+allgemein bekannten Singleton-Pattern (es kann also nur eine Instanz davon
+geben). Diese einmalige Instanz eines solchen Objekts wird beim ersten
+Gebrauch automatisch kreiert. Ein wichtiger Unterschied zu Klassen ist,
+dass ein solches Singleton-Objekt keine Parameter entgegen nehmen kann,
+da es nicht manuell instanziert werden kann.
 
-(- override)
+Ein Keyword wie \emph{static} in Java gibt es nicht. Anstatt Methoden
+statisch zu implementieren, ist es in Scala üblich, Singleton-Objekte
+zu definieren.\\
+
+Todo: Referenz zum Hello-World-Beispiel 
+
+\subsection{Klassen}
+\label{sec:classes}
+
+\subsubsection{Deklaration}
+
+Klassen werden in einer Syntax deklariert die der von Java recht
+ähnlich ist. Der Klassen-Body kann dabei dazu verwendet werden,
+um Operationen bei der Instanzierung der Klasse auszuführen. In Java
+wird dazu eine Konstruktor-Methode benötigt, in Scala hingegen können
+diese Operationen einfach unter den Klassennamen geschrieben werden. \\
+
+Ein Beispiel in Java
+\lstset{float=ht,language=java,caption={Java-Konstruktor},label=lst:javaConstructor}
+\lstinputlisting{src/Constructing.java}
+
+würde in Scala wie folgt aussehen:
+\lstset{float=ht,language=scala,caption={Scala-Konstruktor},label=lst:scalaConstructor}
+\lstinputlisting{src/Constructing.scala}
+
+Dies wird der \emph{primary constructor} benannt. Dem Programmierer steht es 
+frei, noch weitere Konstruktoren zu definieren.
+
+
+\subsubsection{Instanzierung}
+
+
+\subsection{Traits}
+
+
 
 
 \section{Funktionale Konzepte}
 
 \subsection{Funktionen als Objekte und anonyme Funktionen}
+\label{sec:functionsObjects}
 
 Eines der grundlegenden Konzepte aus der Funktionalen Programmierung ist,
 dass Funktionen auch Objekte sind. Dies macht es möglich, Funktionen
@@ -32,10 +79,6 @@ Beispiel \ref{lst:timerAnonymous} zeigt eine Verwendung einer solchen
 anonymen Funktion, welche einem Timer übergeben wird und jede Sekunde
 aufgerufen wird. \\
 
-
-- Funktionen sind auch objekte => return vals, arguments
-
-Beispiel mit dem Timer!
 
 \subsection{Pattern Matching}
 

@@ -5,7 +5,44 @@
 \section{Kompilieren und Ausführen}
 
 \section{Datentypen}
+\label{sec:datatypes}
 
-- Alle Datentypen sind Objekte
-- Arithmetische Operationen sind methoden
-- Unit ist wie void
+\subsection{Datentypen sind Objekte}
+
+Scala ist eine pure Objekt-Orientierte Sprache. Dies bedeutet, dass alles
+ein Objekt ist, selbst Funktionen (siehe \ref{sec:functionsObjects}). Im
+Gegensatz zu Java gibt es also auch keine Primitiven Datentypen.\\
+
+Eine Spezialität ist, dass auch arithmetische Operationen eigentlich
+Methodenaufrufe darstellen. So wird folgender Aufruf
+
+\begin{lstlisting}float=ht,language=scala,caption=Arithmetische Operationen]
+2 + 3 * 4
+\end{lstlisting}
+
+umgewandelt zu
+\begin{lstlisting}float=ht,language=scala,caption=Arithmetische Operationen]
+(2).+((3).*(4))
+\end{lstlisting}
+
+Interessant anzumerken ist hierbei noch, dass arithmetische Zeichen
+als Methodennamen erlaubt sind.
+
+\subsection{Literale}
+Nur kurz da nicht allzusehr interessant!
+
+- integer
+- floats
+- characters
+- string
+- symbole
+- boolean
+
+
+\subsection{Spezielle Datentypen}
+
+- Unit
+- Any
+- lists
+- tuples
+- sets and maps
