@@ -1,8 +1,47 @@
 \chapter{Grundlegendes}
 
 \section{Hallo Welt}
+\label{sec:helloWorld}
+
+Als erstes Beispiel soll, wie üblich, ein Hallo-Welt-Programm dienen:
+
+\lstset{float=ht,language=scala,caption={Hallo Welt},label=lst:helloWorld}
+\lstinputlisting{src/HelloWorld.scala}
+
+Die Definition der Main-Methode ist dabei analog zur Main-Methode in
+einer Java-Applikation.
+
 
 \section{Kompilieren und Ausführen}
+
+Scala bietet drei Möglichkeiten zum Ausführen von Code. Einerseits kann Scala
+für umfangreiche Applikationen kompiliert werden. Dies wird durch den
+Aufruf des Scala-Compilers \emph{scalac} erreicht. Dabei werden Dateien
+mit der Endung \emph{.class} erstellt. Ausgeführt kann eine Applikation
+schliesslich durch den Aufruf von \emph{scala}, bei dem der Klassenname 
+ohne Dateiendung mitgegeben wird, wie bei Java:
+
+\begin{lstlisting}[float=ht,language=bash,caption=Kompilieren und ausführen von Scala-Code,label=lst:execute]
+scalac HelloWorld.scala
+scala HelloWorld
+=> Hello World!
+\end{lstlisting}
+
+Eine andere Möglichkeit besteht darin, Scripts zu erstellen, welche dann
+während der Laufzeit interpretiert und ausgeführt werden. Dazu kann
+der Name der Datei direkt an \emph{scala} übergeben werden. Die Definition
+einer Main-Methode ist hierbei nicht benötigt.\\
+
+Die dritte Möglichkeit ist, interaktiv Scala-Code in den Interpreter 
+einzugeben. Der Interpreter wird gestartet, wenn \emph{scala} ohne
+Argumente aufgerufen wird.
+
+\section{Var und Val}
+
+Scala kennt zwei Keywords, um Variablen zu definieren: \emph{val} und 
+\emph{var}. Der Unterschied besteht darin, dass eine Variable, die mit
+\emph{val} definiert wurde, nicht mehr verändert werden kann. \emph{val}
+ist also ähnlich wie eine \emph{final}-Variable in Java.
 
 \section{Datentypen}
 \label{sec:datatypes}
@@ -16,12 +55,12 @@ Gegensatz zu Java gibt es also auch keine Primitiven Datentypen.\\
 Eine Spezialität ist, dass auch arithmetische Operationen eigentlich
 Methodenaufrufe darstellen. So wird folgender Aufruf
 
-\begin{lstlisting}float=ht,language=scala,caption=Arithmetische Operationen]
+\begin{lstlisting}float=ht,language=scala,caption=Arithmetische Operationen,label=lst:arithmetic]
 2 + 3 * 4
 \end{lstlisting}
 
 umgewandelt zu
-\begin{lstlisting}float=ht,language=scala,caption=Arithmetische Operationen]
+\begin{lstlisting}float=ht,language=scala,caption=Arithmetische Operationen Konvertiert,label=lst:arithmeticConverted]
 (2).+((3).*(4))
 \end{lstlisting}
 

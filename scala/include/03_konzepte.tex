@@ -24,12 +24,15 @@ Ein Keyword wie \emph{static} in Java gibt es nicht. Anstatt Methoden
 statisch zu implementieren, ist es in Scala üblich, Singleton-Objekte
 zu definieren.\\
 
-Todo: Referenz zum Hello-World-Beispiel 
+Ein Beispiel eines einfachen Singleton-Objekts bietet das Listing
+\ref{lst:helloWorld} im Kapitel \ref{sec:helloWorld}.
+
+TODO: referencing ist falsch, vor allem die Listings in 2 werden falsch gemacht.
 
 \subsection{Klassen}
 \label{sec:classes}
 
-\subsubsection{Deklaration}
+\subsubsection{Deklaration und Konstruktoren}
 
 Klassen werden in einer Syntax deklariert die der von Java recht
 ähnlich ist. Der Klassen-Body kann dabei dazu verwendet werden,
@@ -37,7 +40,7 @@ um Operationen bei der Instanzierung der Klasse auszuführen. In Java
 wird dazu eine Konstruktor-Methode benötigt, in Scala hingegen können
 diese Operationen einfach unter den Klassennamen geschrieben werden. \\
 
-Ein Beispiel in Java
+Ein Beispiel einer einfachen Klasse mit Konstruktor in Java
 \lstset{float=ht,language=java,caption={Java-Konstruktor},label=lst:javaConstructor}
 \lstinputlisting{src/Constructing.java}
 
@@ -50,6 +53,15 @@ frei, noch weitere Konstruktoren zu definieren.
 
 
 \subsubsection{Instanzierung}
+
+Die Instanzierung von Klassen erfolgt analog zur Java-Syntax. So würde das 
+Konstruktor-Beispiel im vorigen Kapitel (\ref{lst:scalaConstructor}) wie 
+folgt instanziert werden:
+
+\lstset{float=ht,language=scala,caption={Scala-Konstruktor},label=lst:scalaConstructor}
+\lstinputlisting{src/TestConstructing.scala}
+
+\subsubsection{Komposition und Vererbung}
 
 
 \subsection{Traits}
