@@ -83,8 +83,22 @@ Beispiel TODO beispiel
 
 \subsection{Traits}
 
+Ein Konzept, das beim Vergleich mit Java zu fehlen scheint, sind 
+Interfaces. Scala bietet hierfür jedoch Traits, welche
+den Interfaces nicht unähnlich sind. Traits können wie Klassen
+vererbt werden, was als \glqq mixin\grqq \footnote{Vom Englischen \emph{to mix in}}
+bezeichnet wird. Der hauptsächliche Unterschied zu Interfaces besteht 
+darin, dass Traits bereits implementation von Methoden enthalten
+können. Jedoch können sie keine Konstruktor-Parameter enthalten. \\
 
-
+Es dürfen mehrere Traits in eine Klasse \glqq gemischt\grqq werden. Dies
+ähnelt der Mehrfachvererbung von z.B. c++. Im Gegensatz dazu können
+jedoch mit Traits Probleme
+\footnote{Das Diamond-Problem 
+\href{http://de.wikipedia.org/wiki/Diamond-Problem}
+{http://de.wikipedia.org/wiki/Diamond-Problem}} vermieden werden, die 
+normalerweise bei Mehrfachvererbung auftauchen. Eine genaue Abhandlung
+hierzu würde jedoch dieses Dokument sprengen.
 
 \section{Funktionale Konzepte}
 
@@ -104,14 +118,37 @@ Falls sie jedoch nur zu diesem einen Zweck definiert wird, ist eine
 Benennung der Funktion überflüssig. Aus diesem Grund kann eine Funktion
 auch \emph{anonym} erstellt und verwendet werden.\\
 
+Erstellt kann eine Anonyme Funktion ziemlich einfach wie folgt:
+
+\begin{lstlisting}[float=ht,language=bash,caption=Anonyme Funktion,label=lst:anonymousFunction]
+(x: Int) => x + 1
+\end{lstlisting}
+
 Beispiel \ref{lst:timerAnonymous} zeigt eine Verwendung einer solchen 
 anonymen Funktion, welche einem Timer übergeben wird und jede Sekunde
 aufgerufen wird. \\
 
-
 \subsection{Pattern Matching}
 
 \subsection{Closures}
+
+Closures bilden ein Konzept in Funktionen, welches beim Aufruf der 
+Funktion den Kontext, der bei der Erstellung der Funktion vorherrschte,
+wiederherstellt. \\
+
+Ein Beispiel soll dies verdeutlichen:
+
+\lstset{float=ht,language=scala,caption={Eine Closure \cite{odersky}},label=lst:closures}
+\lstinputlisting{src/Closures.scala}
+
+Ausgeführt gibt dieses Beispiel den Wert 11 aus.
+
+Obwohl die Variable \emph{more} im Kontext der Funktion nicht gebunden
+wurde, funktioniert dieses Beispiel weil im Kontext der Erstellung eine
+Variable \emph{more} existierte. Wird diese Variable nach der
+Erstellung der Closure verändert, wird dies von der Closure bemerkt und 
+der veränderte Wert verwendet. Umgekehrt wird eine Veränderung der
+Variable innerhalb der Funktion auch nach aussen sichtbar.
 
 \subsection{Currying}
 
