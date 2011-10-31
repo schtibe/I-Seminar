@@ -190,6 +190,18 @@ Variable innerhalb der Funktion auch nach aussen sichtbar.
 
 \subsection{Currying}
 
+Scala unterstützt das Konzept des Currying. Hierbei wird kann eine Funktion,
+die \emph{n} Argumente erwartet, mit nur einem Argument aufgerufen werden. 
+Daraus resultiert eine neue Funktion die nur noch \emph{n - 1} Argumente
+erwartet und das bereits gegebene Argument fest enthält.\\
+
+Folgend ein Beispiel, welches die Verwendung einer solchen Funktion
+verdeutlicht: 
+
+\lstset{float=ht,language=scala,caption={Eine Closure \cite{odersky}},label=lst:closures}
+\lstinputlisting{src/Currying.scala}
+
+Dieses Beispiel gibt das korrekte Resultat 5 aus.
 
 
 \section{Typensystem}
