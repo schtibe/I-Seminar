@@ -57,14 +57,13 @@ def Funktion(arg1: Int, arg2: String) : Boolean {} // Boolean ist der Rueckgabew
 \section{Datentypen}
 \label{sec:datatypes}
 
-\subsection{Datentypen sind Objekte}
-
 Scala ist eine pure Objekt-Orientierte Sprache. Dies bedeutet, dass alles
 ein Objekt ist, selbst Funktionen (siehe \ref{sec:functionsObjects}). Im
 Gegensatz zu Java gibt es also auch keine primitiven Datentypen.\\
 
 Eine Spezialität ist, dass auch arithmetische Operationen eigentlich
-Methodenaufrufe darstellen. So wird folgender Aufruf
+Methodenaufrufe auf den entsprechenden Datentypen darstellen. So wird
+folgender Aufruf
 
 \begin{lstlisting}float=ht,language=scala,caption=Arithmetische Operationen,label=lst:arithmetic]
 2 + 3 * 4
@@ -75,24 +74,6 @@ umgewandelt zu
 (2).+((3).*(4))
 \end{lstlisting}
 
-Interessant anzumerken ist hierbei noch, dass arithmetische Zeichen
-als Methodennamen erlaubt sind.
+Ersichtlich wird hierbei, dass arithmetische Zeichen
+als Methodennamen erlaubt sind. \\
 
-\subsection{Literale}
-Nur kurz da nicht allzusehr interessant!
-
-- integer
-- floats
-- characters
-- string
-- symbole
-- boolean
-
-
-\subsection{Spezielle Datentypen}
-
-- Unit
-- Any
-- lists
-- tuples
-- sets and maps
