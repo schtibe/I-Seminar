@@ -36,6 +36,23 @@ Die dritte Möglichkeit ist, interaktiv Scala-Code in den Interpreter
 einzugeben. Der Interpreter wird gestartet, wenn \emph{scala} ohne
 Argumente aufgerufen wird.
 
+\section{Syntaktische Grundlagen}
+
+Um die Beispiel in diesem Dokument verstehen zu können, muss kurz auf
+die Syntax von Scala eingegangen werden. Im Allgemeinen ähnelt sie der
+von Java, so werden z.B. Blöcke mit \{ \} eingeschlossen und viele
+Keywords sind gleich (class, abstract, private, extends, ...).
+Ein wesentlicher Unterschied besteht in der Angabe von Typen bei Variablen
+und Funktionen: anstatt dass Typen wie in Java vor die Deklaration gestellt
+werden (z.b. int foo;), werden Typen in Scala mit einem Doppelpunkt getrennt
+\emph{hinter} die Deklaration gestellt. Folgend je ein Beispiel zu einer Variable
+und einer Funktion mit Argumenten und einem Rückgabewert:
+
+\begin{lstlisting}[float=ht,language=bash,caption=Typenangabe,label=lst:types]
+var Number: Int
+def Funktion(arg1: Int, arg2: String) : Boolean {} // Boolean ist der Rueckgabewert
+\end{lstlisting}
+
 
 \section{Datentypen}
 \label{sec:datatypes}
