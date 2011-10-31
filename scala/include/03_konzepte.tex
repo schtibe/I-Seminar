@@ -204,9 +204,21 @@ verdeutlicht:
 Dieses Beispiel gibt das korrekte Resultat 5 aus.
 
 
-\section{Typensystem}
+\section{Typeninferenz}
 
-\subsection{Typinferenz}
+Scala ist statisch typisiert. Dies bedeutet, dass der Datentyp von
+Variablen bereits zur Kompilierzeit festgelegt wird. Dies kann in Scala
+durch den Programmierer gemacht werden. Zusätzlich bietet Scala jedoch
+noch die sogenannte \emph{Typinferenz}: es ist oftmals möglich, die
+explizite Angabe von Datentypen wegzulassen da der Compiler in der Lage
+ist, manche Datentypen aus dem Kontext herzuleiten. Als Beispiel
+soll eine einfache Deklaration einer Variable dienen, bei der der Datentyp
+vom Compiler abgeleitet werden kann:
+
+\begin{lstlisting}[float=ht,language=scala,caption=Automatisch hergeleiteter Datentyp,label=lst:typeinference]
+var foo = "bar"
+\end{lstlisting}
+
 
 \section{XML}
 
