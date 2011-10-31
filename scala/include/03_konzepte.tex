@@ -120,7 +120,7 @@ auch \emph{anonym} erstellt und verwendet werden.\\
 
 Erstellt kann eine Anonyme Funktion ziemlich einfach wie folgt:
 
-\begin{lstlisting}[float=ht,language=bash,caption=Anonyme Funktion,label=lst:anonymousFunction]
+\begin{lstlisting}[float=ht,language=scala,caption=Anonyme Funktion,label=lst:anonymousFunction]
 (x: Int) => x + 1
 \end{lstlisting}
 
@@ -129,6 +129,41 @@ anonymen Funktion, welche einem Timer übergeben wird und jede Sekunde
 aufgerufen wird. \\
 
 \subsection{Pattern Matching}
+
+Ein wichtiges Konzept der Funktionalen Programmierung ist das Konzept
+des Pattern Matching. Hierbei können Muster angegeben werden, nach denen 
+die Eingabeparameter einer Funktion geprüft werden. Zusätzlich zu den
+Mustern werden verschiedene Funktionen definiert. Es wird dann diejenige
+Funktion ausgeführt, bei der das Muster auf die Eingabe zutrifft.\\
+
+In Scala kann Pattern Matching auf sogenannte \emph{Case Classes} angewendet
+werden. So können Funktionen erstellt werden, die sich je nach Eingabe,
+sei es Typen oder Werte, anders verhalten.  Möchte man das gleiche
+in Java erreichen, müsste man ein switch-Statement oder sogar eine
+\glqq if-elseif-Verzweigung\grqq konstruieren, welches alle möglichen
+Eingabewerte (unter Umständen mit \emph{instanceof}) überprüft.
+
+Case-Classes können einfach erstellt werden, indem einfach das Keyword
+\emph{case} vor die Klassendeklaration gestellt wird. \\
+
+Um Pattern Matching etwas näher zu bringen, erstmal ein Beispiel einer
+Funktion, welche verschiedene Eingabewerte \glqq matcht\grqq und dementsprechend
+ein verschiedenes Verhalten an den Tag legt (dieses Beispiel kommt der 
+Einfachheit halber ohne Case-Classes aus)
+
+\begin{lstlisting}[float=ht,language=scala,caption=Pattern Matching auf Litale \cite{odersky},label=lst:patternMatching]
+def describe (x: Any) = x match {
+	case 5       => "five"
+	case true    => "truth"
+	case "hello" => "hi!"
+	case Nil     => "the empty list"
+	case _       => "something else" // Default
+}
+\end{lstlisting}
+
+Pattern Matching kommt beispielsweise oft dann zum Zug, wenn es um
+Baum-ähnliche Datenstrukturen geht. Beispiel REF im Kapitel REF zeigt ein
+solches Beispiel zusammen mit Case Classes.
 
 \subsection{Closures}
 
