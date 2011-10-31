@@ -161,9 +161,14 @@ def describe (x: Any) = x match {
 }
 \end{lstlisting}
 
-Pattern Matching kommt beispielsweise oft dann zum Zug, wenn es um
-Baum-ähnliche Datenstrukturen geht. Beispiel REF im Kapitel REF zeigt ein
-solches Beispiel zusammen mit Case Classes.
+Ein wichtiger Vorteil gegenüber einer Implementation in Java mit
+einem Switch-Statement und instanceof sind sogenannte 
+\emph{Constructor Patterns}. Hierbei kann nicht nur das Objekt selber
+verglichen werden sondern auch dessen Inhalt. \\
+
+Pattern Matching kommt oft dann zum Zug, wenn es um Baum-ähnliche
+Datenstrukturen geht. Beispiel REF im Kapitel REF zeigt ein solches
+Beispiel zusammen mit Case Classes.
 
 \subsection{Closures}
 
