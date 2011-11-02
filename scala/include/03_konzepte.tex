@@ -222,4 +222,15 @@ var foo = "bar"
 
 \section{XML}
 
-\section{Threading}
+Scala unterstützt XML nativ. So kann XML einfach als Literal in den
+Scala-Code geschrieben werden (ohne Anführungszeichen). Innerhalb
+dieser XML-Literale kann wiederum Scala-Code geschrieben werden, der
+evaluiert wird.  Weiter kann unter anderem Pattern Matching angewendet
+werden, um durch XML zu traversieren. \\
+
+Ein kleines Beispiel zur Verwendung von nativem XML in Scala:
+\begin{lstlisting}[float=ht,language=scala,caption={XML mit Code, der evaluiert wird},label=lst:xml]
+var foo = <a> { 3 + 5 } </a>
+\end{lstlisting}
+
+
