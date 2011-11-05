@@ -10,6 +10,7 @@ ist also ähnlich wie eine \emph{final}-Variable in Java.
 \section{Objektorientierung}
 
 \subsection{Singleton-Objekte}
+\label{sec:singleton}
 
 Da Scala eine Objektorientierte Programmiersprache ist, können nebst
 den eingebauten Datentypen (\ref{sec:datatypes}) auch Klassen oder
@@ -23,20 +24,20 @@ Gebrauch automatisch kreiert. Ein wichtiger Unterschied zu Klassen ist,
 dass ein solches Singleton-Objekt keine Parameter entgegen nehmen kann,
 da es nicht manuell instanziert werden kann.
 
-Ein Keyword wie \emph{static} in Java gibt es nicht. Anstatt Methoden
-statisch zu implementieren, ist es in Scala üblich, Singleton-Objekte
-zu definieren.\\
+Ein Keyword wie \emph{static} in Java gibt es nicht. Anstatt
+Methoden statisch zu implementieren, ist es in Scala üblich, sie in
+Singleton-Objekten zu definieren.\\
 
-Ein Beispiel eines einfachen Singleton-Objekts bietet das Listing
-\ref{lst:helloWorld} im Kapitel \ref{sec:helloWorld}.
+Ein Beispiel eines einfachen Singleton-Objekts bietet das
+Hallo-Welt-Beispiel im Kapitel \ref{sec:helloWorld}.
 
 \subsection{Klassen}
 \label{sec:classes}
 
 \subsubsection{Deklaration und Konstruktoren}
 
-Klassen werden in einer Syntax deklariert die der von Java recht
-ähnlich ist. Der Klassen-Body kann dabei dazu verwendet werden,
+Klassen werden in einer Syntax deklariert, die der von Java recht
+ähnlich ist. Der Klassen-Body kann dabei verwendet werden,
 um Operationen bei der Instanzierung der Klasse auszuführen. In Java
 wird dazu eine Konstruktor-Methode benötigt, in Scala hingegen können
 diese Operationen einfach unter den Klassennamen geschrieben werden. \\
@@ -62,11 +63,14 @@ folgt instanziert werden:
 \lstset{float=ht,language=scala,caption={Scala-Konstruktor},label=lst:scalaConstructor}
 \lstinputlisting{src/TestConstructing.scala}
 
+Es gibt noch den Spezialfall Case-Klassen (\ref{sec:patternMatching}),
+bei denen das \emph{new}-Keyword weggelassen werden darf.
+
 \subsubsection{Komposition und Vererbung}
 
 Scala bietet alle nötigen Instrumente, um Klassen zu vererben und Subtypen
 zu erstellen. Ebenfalls erstellt werden können abstrakte Klassen, finale
-Klassen und Variablen. Ebenso möglich ist, die Sichtbarkeit von 
+Klassen und Variablen. Ebenso möglich ist es, die Sichtbarkeit von 
 Klassenmember mit \emph{private} oder \emph{protected} einzuschränken. 
 Kenner von Java finden sich mit den entsprechenden Keywords für diese
 Konzepte schnell zurecht.\\
@@ -86,8 +90,9 @@ Interfaces. Scala bietet hierfür jedoch Traits, welche
 den Interfaces nicht unähnlich sind. Traits können wie Klassen
 vererbt werden, was als \glqq mixin\grqq \footnote{Vom Englischen \emph{to mix in}}
 bezeichnet wird. Der hauptsächliche Unterschied zu Interfaces besteht 
-darin, dass Traits bereits implementation von Methoden enthalten
-können. Jedoch können sie keine Konstruktor-Parameter enthalten. \\
+darin, dass Traits bereits Implementation von Methoden enthalten
+können. Jedoch können sie keine Konstruktor-Parameter enthalten,
+wie es bei abstrakten Klassen möglich ist.\\
 
 Es dürfen mehrere Traits in eine Klasse \glqq gemischt\grqq werden. Dies
 ähnelt der Mehrfachvererbung von z.B. c++. Im Gegensatz dazu können
@@ -95,8 +100,9 @@ jedoch mit Traits Probleme
 \footnote{Das Diamond-Problem 
 \href{http://de.wikipedia.org/wiki/Diamond-Problem}
 {http://de.wikipedia.org/wiki/Diamond-Problem}} vermieden werden, die 
-normalerweise bei Mehrfachvererbung auftauchen. Eine genaue Abhandlung
-hierzu würde jedoch dieses Dokument sprengen.
+normalerweise bei Mehrfachvererbung auftauchen. Dies wird erreicht,
+indem mit Traits keine Hierarchie dargestellt werden kann. Dies
+wird unter dem Begriff horizontale Vererbung zusammengefasst.
 
 \section{Funktionale Konzepte}
 
@@ -110,13 +116,13 @@ oder als Return-Werte zurück zu geben. Ein Anwendungsbereich für eine
 solche Funktion könnte z.B. ein Callback sein, der auf einem Event
 registriert wird.\\
 
-Eine solche Funktion kann einerseits eine benannte Funktion sein,
-auch eine die innerhalb einer Klasse oder einem Objekt definiert ist.
-Falls sie jedoch nur zu diesem einen Zweck definiert wird, ist eine 
-Benennung der Funktion überflüssig. Aus diesem Grund kann eine Funktion
-auch \emph{anonym} erstellt und verwendet werden.\\
+Eine solche Funktion kann einerseits eine benannte Funktion sein, auch
+eine die innerhalb einer Klasse oder einem Objekt definiert ist.  Falls
+sie jedoch nur dazu definiert wird, um z.B. an eine Funktion übergeben
+zu werden, ist eine Benennung der Funktion überflüssig. Aus diesem Grund
+kann eine Funktion auch \emph{anonym} erstellt und verwendet werden.\\
 
-Erstellt kann eine Anonyme Funktion ziemlich einfach wie folgt:
+Dies wird wie folgt erreicht: 
 
 \begin{lstlisting}[float=ht,language=scala,caption=Anonyme Funktion,label=lst:anonymousFunction]
 (x: Int) => x + 1
@@ -127,21 +133,25 @@ anonymen Funktion, welche einem Timer übergeben wird und jede Sekunde
 aufgerufen wird. \\
 
 \subsection{Pattern Matching}
+\label{sec:patternMatching}
 
-Ein wichtiges Konzept der Funktionalen Programmierung ist das Konzept
-des Pattern Matching. Hierbei können Muster angegeben werden, nach denen 
-die Eingabeparameter einer Funktion geprüft werden. Zusätzlich zu den
+Ein anderes Konzept der Funktionalen Programmierung ist das des Pattern
+Matching. Hierbei können Muster angegeben werden, nach denen die
+Eingabeparameter einer Funktion geprüft werden. Zusätzlich zu den
 Mustern werden verschiedene Funktionen definiert. Es wird dann diejenige
-Funktion ausgeführt, bei der das Muster auf die Eingabe zutrifft.\\
+Funktion ausgeführt, bei der das Muster auf die Eingabe zutrifft. Eine
+Funktion mit Pattern Matching bietet also je nach Eingabe unterschiedliche
+Definitionen. \\
 
-In Scala kann Pattern Matching auf sogenannte \emph{Case Classes} angewendet
-werden. So können Funktionen erstellt werden, die sich je nach Eingabe,
-sei es Typen oder Werte, anders verhalten.  Möchte man das gleiche
-in Java erreichen, müsste man ein switch-Statement oder sogar eine
-\glqq if-elseif-Verzweigung\grqq konstruieren, welches alle möglichen
-Eingabewerte (unter Umständen mit \emph{instanceof}) überprüft.
+In Scala kann Pattern Matching unter anderem auf sogenannte \emph{Case
+Classes} angewendet werden. So können Funktionen erstellt werden, die
+sich je nach Eingabe, sei es Typen oder Werte, anders verhalten.  Möchte
+man das gleiche in Java erreichen, müsste man ein switch-Statement
+oder sogar eine \glqq if-elseif-Verzweigung\grqq konstruieren, welches
+alle möglichen Eingabewerte (unter Umständen mit \emph{instanceof})
+überprüft oder gar das Visitor-Pattern implementieren.
 
-Case-Classes können einfach erstellt werden, indem einfach das Keyword
+Case-Classes können einfach erstellt werden, indem lediglich das Keyword
 \emph{case} vor die Klassendeklaration gestellt wird. \\
 
 Um Pattern Matching etwas näher zu bringen, erstmal ein Beispiel einer
@@ -149,7 +159,7 @@ Funktion, welche verschiedene Eingabewerte \glqq matcht\grqq und dementsprechend
 ein verschiedenes Verhalten an den Tag legt (dieses Beispiel kommt der 
 Einfachheit halber ohne Case-Classes aus)
 
-\begin{lstlisting}[float=ht,language=scala,caption=Pattern Matching auf Litale \cite{odersky},label=lst:patternMatching]
+\begin{lstlisting}[float=ht,language=scala,caption=Pattern Matching auf Literale \cite{odersky},label=lst:patternMatching]
 def describe (x: Any) = x match {
 	case 5       => "five"
 	case true    => "truth"
@@ -182,7 +192,7 @@ Ein Beispiel soll dies verdeutlichen:
 Ausgeführt gibt dieses Beispiel den Wert 11 aus.
 
 Obwohl die Variable \emph{more} im Kontext der Funktion nicht gebunden
-wurde, funktioniert dieses Beispiel weil im Kontext der Erstellung eine
+wurde, funktioniert dieser Code weil im Kontext der Erstellung eine
 Variable \emph{more} existierte. Wird diese Variable nach der
 Erstellung der Closure verändert, wird dies von der Closure bemerkt und 
 der veränderte Wert verwendet. Umgekehrt wird eine Veränderung der
@@ -190,7 +200,7 @@ Variable innerhalb der Funktion auch nach aussen sichtbar.
 
 \subsection{Currying}
 
-Scala unterstützt das Konzept des Currying. Hierbei wird kann eine Funktion,
+Scala unterstützt auch Currying. Hierbei wird kann eine Funktion,
 die \emph{n} Argumente erwartet, mit nur einem Argument aufgerufen werden. 
 Daraus resultiert eine neue Funktion die nur noch \emph{n - 1} Argumente
 erwartet und das bereits gegebene Argument fest enthält.\\

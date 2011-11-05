@@ -8,9 +8,11 @@ Als erstes Beispiel soll, wie üblich, ein Hallo-Welt-Programm dienen:
 \lstset{float=ht,language=scala,caption={Hallo Welt},label=lst:helloWorld}
 \lstinputlisting{src/HelloWorld.scala}
 
-Die Definition der Main-Methode ist dabei analog zur Main-Methode in
+Wie man sehen kann, ähnelt die Syntax der von Java. Darauf eingegangen
+wird im Kapitel \ref{sec:syntax}. Das Keyword \emph{object} definiert
+ein Singleton-Objekt (siehe \ref{sec:singleton}).
+Die Definition der Main-Methode ist analog zur Main-Methode in
 einer Java-Applikation.
-
 
 \section{Kompilieren und Ausführen}
 
@@ -21,7 +23,7 @@ mit der Endung \emph{.class} erstellt. Ausgeführt kann eine Applikation
 schliesslich durch den Aufruf von \emph{scala}, bei dem der Klassenname 
 ohne Dateiendung mitgegeben wird, wie bei Java:
 
-\begin{lstlisting}[float=ht,language=bash,caption=Kompilieren und ausführen von Scala-Code,label=lst:execute]
+\begin{lstlisting}[float=ht,language=bash,caption=Kompilieren und Ausführen von Scala-Code,label=lst:execute]
 scalac HelloWorld.scala
 scala HelloWorld
 => Hello World!
@@ -30,29 +32,33 @@ scala HelloWorld
 Eine andere Möglichkeit besteht darin, Scripts zu erstellen, welche dann
 während der Laufzeit interpretiert und ausgeführt werden. Dazu kann
 der Name der Datei direkt an \emph{scala} übergeben werden. Die Definition
-einer Main-Methode ist hierbei nicht benötigt.\\
+einer Main-Methode wird hierbei nicht benötigt.\\
 
 Die dritte Möglichkeit ist, interaktiv Scala-Code in den Interpreter 
 einzugeben. Der Interpreter wird gestartet, wenn \emph{scala} ohne
 Argumente aufgerufen wird.
 
 \section{Syntaktische Grundlagen}
+\label{sec:syntax}
 
-Um die Beispiel in diesem Dokument verstehen zu können, muss kurz auf
-die Syntax von Scala eingegangen werden. Im Allgemeinen ähnelt sie der
-von Java, so werden z.B. Blöcke mit \{ \} eingeschlossen und viele
-Keywords sind gleich (class, abstract, private, extends, ...).
-Ein wesentlicher Unterschied besteht in der Angabe von Typen bei Variablen
-und Funktionen: anstatt dass Typen wie in Java vor die Deklaration gestellt
-werden (z.b. int foo;), werden Typen in Scala mit einem Doppelpunkt getrennt
-\emph{hinter} die Deklaration gestellt. Folgend je ein Beispiel zu einer Variable
-und einer Funktion mit Argumenten und einem Rückgabewert:
+Um die Beispiele in diesem Dokument verstehen zu können, muss kurz
+auf die Syntax von Scala eingegangen werden. Im Allgemeinen ähnelt
+sie der von Java, so werden z.B. Blöcke mit \{ \} eingeschlossen und
+viele Keywords sind gleich (class, abstract, private, extends, ...).
+Ein wesentlicher Unterschied besteht in der Angabe von Typen bei
+Variablen und Funktionen, welches der Programmiersprache ML entlehnt
+wurde: anstatt dass Typen wie in Java vor die Deklaration gestellt werden
+(z.b. int foo;), werden Typen in Scala mit einem Doppelpunkt getrennt
+\emph{hinter} die Deklaration gestellt. Folgend je ein Beispiel zu einer
+Variable und einer Funktion mit Argumenten und einem Rückgabewert:
 
 \begin{lstlisting}[float=ht,language=scala,caption=Typenangabe,label=lst:types]
 var Number: Int
 def Funktion(arg1: Int, arg2: String) : Boolean {} // Boolean ist der Rueckgabewert
 \end{lstlisting}
 
+Das Semikolon am Ende der Zeile kann in Scala ausgelassen werden, wenn nicht
+mehrere Statements auf einer Zeile stehen.
 
 \section{Datentypen}
 \label{sec:datatypes}
@@ -75,7 +81,8 @@ umgewandelt zu
 \end{lstlisting}
 
 Ersichtlich wird hierbei, dass arithmetische Zeichen
-als Methodennamen erlaubt sind. \\
+als Methodennamen erlaubt sind. Dies erlaubt auch ein einfaches überschreiben
+der Operatoren, wie dies bei C++ möglich ist.
 
 \section{Integration mit Java}
 
@@ -83,5 +90,3 @@ Beim Kompilieren von Scala wird Bytecode erstellt, der in der Java
 Virtual Machine ausgeführt wird. Dies ermöglicht eine weite Bandbreite
 von unterstützten Plattformen. Dadurch können auch alle Java-Libraries
 in Scala verwendet werden. \\
-
-Es existiert zudem eine alternative Implementierung für die .NET-Plattform.

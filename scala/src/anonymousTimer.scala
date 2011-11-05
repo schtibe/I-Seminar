@@ -8,7 +8,7 @@ object TimerAnonymous {
 		}
 	}
 	def main(args: Array[String]) {
-		// Uebergebe oncePerSecond eine anynome Funktion
+		// Uebergebe oncePerSecond eine anonynome Funktion
 		oncePerSecond(() => 
 			println("time flies like an arrow...")
 		)
