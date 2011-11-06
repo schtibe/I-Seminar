@@ -7,6 +7,7 @@ default: build
 
 build: clean 
 	pdflatex $(JOB).tex -shell-escape -interaction=nonstopmode 1> /dev/null
+	mpost $(JOB) 1> /dev/null
 	bibtex $(JOB) 1> /dev/null
 	pdflatex $(JOB).tex -shell-escape -interaction=nonstopmode 1> /dev/null
 	pdflatex $(JOB).tex -shell-escape -interaction=nonstopmode 1> /dev/null
