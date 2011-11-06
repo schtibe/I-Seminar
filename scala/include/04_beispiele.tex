@@ -46,7 +46,7 @@ Eine Implementation in Scala könnte wie folgt aussehen:
 
 Auffällig ist hier, dass die Klammern bei den Funktionsaufrüfen \emph{this.getLabel} 
 und \emph{this.getShapeInfo} weggelassen wurde. Dies ist erlaubt, solange eine Funktion
-keine Argumente erwartet. \emph{Shape} hat einen Primary Constructor, welcher prüft,
+keine Argumente erwartet. \emph{Shape} hat ausserdem einen Primary Constructor, welcher prüft,
 dass die Positionsargumente positiv sind.
 
 \section{Timer mit anonymer Funktion}
@@ -62,10 +62,11 @@ Quelle: \cite{scalaTutorial}
 \section{Case Classes und Pattern Matching}
 \label{sec:caseClasses}
 
-Dieses Beispiel bietet eine Datenstruktur bestehend aus Case Classes, um
-arithmetische Ausdrücke zu repräsentieren. Zusätzlich definiert es
-eine Funktion mit Pattern Matching, welche diese Ausdrücke vereinfachen kann.
-Namentlich wird folgendes gemacht:
+Dieses Beispiel (Quelle \cite{odersky}) bietet eine Datenstruktur
+bestehend aus Case Classes, um arithmetische Ausdrücke zu
+repräsentieren. Zusätzlich definiert es eine Funktion mit Pattern
+Matching, welche diese Ausdrücke vereinfachen kann.  Namentlich wird
+folgendes gemacht:
 
 \begin{itemize}
 \item Doppelte Negation wird entfernt: $--15$ wird zu $-15$
