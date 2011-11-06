@@ -12,7 +12,7 @@ ist also ähnlich wie eine \emph{final}-Variable in Java.
 \subsection{Singleton-Objekte}
 \label{sec:singleton}
 
-Da Scala eine Objektorientierte Programmiersprache ist, können nebst
+Da Scala eine objektorientierte Programmiersprache ist, können nebst
 den eingebauten Datentypen (\ref{sec:datatypes}) auch Klassen oder
 Objekte definiert werden. Klassen haben die gleiche Funktionalität
 wie in Java, mehr dazu unter \ref{sec:classes}.  Anders als in Java
@@ -60,7 +60,7 @@ Die Instanzierung von Klassen erfolgt analog zur Java-Syntax. So würde das
 Konstruktor-Beispiel im vorigen Kapitel (\ref{lst:scalaConstructor}) wie 
 folgt instanziert werden:
 
-\lstset{float=ht,language=scala,caption={Scala-Konstruktor},label=lst:scalaConstructor}
+\lstset{float=ht,language=scala,caption={Instanzieren in Scala},label=lst:instancing}
 \lstinputlisting{src/TestConstructing.scala}
 
 Es gibt noch den Spezialfall Case-Klassen (\ref{sec:patternMatching}),
@@ -72,8 +72,8 @@ Scala bietet alle nötigen Instrumente, um Klassen zu vererben und Subtypen
 zu erstellen. Ebenfalls erstellt werden können abstrakte Klassen, finale
 Klassen und Variablen. Ebenso möglich ist es, die Sichtbarkeit von 
 Klassenmember mit \emph{private} oder \emph{protected} einzuschränken. 
-Kenner von Java finden sich mit den entsprechenden Keywords für diese
-Konzepte schnell zurecht.\\
+Kenner von Java finden sich mit den entsprechenden Keywords 
+schnell zurecht.\\
 
 Ein Keyword, welches in Scala zusätzlich anzutreffen ist, ist 
 \emph{override}. Falls ein Klassen-Member überschrieben werden soll,
@@ -101,20 +101,20 @@ jedoch mit Traits Probleme
 \href{http://de.wikipedia.org/wiki/Diamond-Problem}
 {http://de.wikipedia.org/wiki/Diamond-Problem}} vermieden werden, die 
 normalerweise bei Mehrfachvererbung auftauchen. Dies wird erreicht,
-indem mit Traits keine Hierarchie dargestellt werden kann. Dies
-wird unter dem Begriff horizontale Vererbung zusammengefasst.
+indem mit Traits keine Hierarchie dargestellt werden kann. Dieses
+Konzept wird auch horizontale Vererbung genannt.
 
 \section{Funktionale Konzepte}
 
 \subsection{Funktionen als Objekte und anonyme Funktionen}
 \label{sec:functionsObjects}
 
-Eines der grundlegenden Konzepte aus der Funktionalen Programmierung ist,
-dass Funktionen auch Objekte sind. Dies macht es möglich, Funktionen
-in Variablen zu speichern, sie als Argument an Funktionen zu übergeben
-oder als Return-Werte zurück zu geben. Ein Anwendungsbereich für eine
-solche Funktion könnte z.B. ein Callback sein, der auf einem Event
-registriert wird.\\
+Eines der Konzepte in Scala, welches durch die funktionale Programmierung
+inspiriert wurde, ist die Eigenschaft, dass Funktionen auch Objekte
+sind. Dies macht es möglich, Funktionen in Variablen zu speichern, sie
+als Argument an Funktionen zu übergeben oder als Return-Werte zurück zu
+geben. Ein Anwendungsbereich für eine solche Funktion könnte z.B. ein
+Callback sein, der auf einem Event registriert wird.\\
 
 Eine solche Funktion kann einerseits eine benannte Funktion sein, auch
 eine die innerhalb einer Klasse oder einem Objekt definiert ist.  Falls
@@ -152,7 +152,8 @@ alle möglichen Eingabewerte (unter Umständen mit \emph{instanceof})
 überprüft oder gar das Visitor-Pattern implementieren.
 
 Case-Classes können einfach erstellt werden, indem lediglich das Keyword
-\emph{case} vor die Klassendeklaration gestellt wird. \\
+\emph{case} vor die Klassendeklaration gestellt wird. Diese werden
+dann so auf die Verwendung in Pattern Matches \qlqq vorbereitet\grqq.\\
 
 Um Pattern Matching etwas näher zu bringen, erstmal ein Beispiel einer
 Funktion, welche verschiedene Eingabewerte \glqq matcht\grqq und dementsprechend
@@ -218,12 +219,12 @@ Dieses Beispiel gibt das korrekte Resultat 5 aus.
 
 Scala ist statisch typisiert. Dies bedeutet, dass der Datentyp von
 Variablen bereits zur Kompilierzeit festgelegt wird. Dies kann in Scala
-durch den Programmierer gemacht werden. Zusätzlich bietet Scala jedoch
-noch die sogenannte \emph{Typinferenz}: es ist oftmals möglich, die
-explizite Angabe von Datentypen wegzulassen da der Compiler in der Lage
-ist, manche Datentypen aus dem Kontext herzuleiten. Als Beispiel
+durch den Programmierer explizit gemacht werden. Zusätzlich bietet Scala
+jedoch noch die sogenannte \emph{Typinferenz}: es ist oftmals möglich,
+die explizite Angabe von Datentypen wegzulassen da der Compiler in der
+Lage ist, manche Datentypen aus dem Kontext herzuleiten. Als Beispiel
 soll eine einfache Deklaration einer Variable dienen, bei der der Datentyp
-vom Compiler abgeleitet werden kann:
+(String) vom Compiler abgeleitet werden kann:
 
 \begin{lstlisting}[float=ht,language=scala,caption=Automatisch hergeleiteter Datentyp,label=lst:typeinference]
 var foo = "bar"
