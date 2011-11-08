@@ -1,5 +1,32 @@
 \section{Funktionale Programmierung}
 
-\begin{frame}[fragile]{Klassen}
+\begin{frame}[t]{Funktionsobjekte}
+
+\begin{itemize}[<+->]
+\item Funktionen sind auch Objekte
+\item Speichern in Variablen
+\item Übergeben an Funktionen
+\item Rückgabewerte
+\item Callbacks
+\note[item]<5> {in Java ist dies nicht möglich}
+\note[item]<5> {Callbacks mit anonymen klassen}
+\item Anonym möglich
+\end{itemize}
 
 \end{frame}
+
+\begin{frame}[fragile]{Pattern Matching}
+
+\begin{lstlisting}[language=scala]
+def describe (x: Any) = x match {
+	case 5       => "five"
+	case true    => "truth"
+	case "hello" => "hi!"
+	case Nil     => "the empty list"
+	case _       => "something else" // Default
+}
+\end{lstlisting}
+
+\end{frame}
+
+
