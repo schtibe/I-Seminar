@@ -1,0 +1,78 @@
+\chapter{Beispiele}
+
+
+\section{Klassen und Vererbung}
+\label{sec:bspClasses}
+
+Dieses Beispiel zeigt die Verwendung von Klassen und Vererbung in Scala
+(alle Klassen in Scala erben von der Klasse \emph{Any}). Sie bildet
+folgende Klassenkonstellation ab:
+
+
+\begin{figure}[H]
+	\centering
+	\begin{emp}[classdiag](20, 20)
+		Class.Any("Any")()();
+
+		AbstractClass.Shape("Shape")("+id: String", "x: Int", "y: Int")
+			("+move(x: Int, y: Int)", "+draw()", "toString(): String", "getLabel(): String", "getShapeInfo(): String");
+		Class.Ellipse("Ellipse")("radius: Int", "stretch: Int")();
+		Class.Rectangle("Rectangle")("w: Int", "h: Int")();
+		Class.Circle("Circle")("{r = s}")();
+		Class.Square("Square")("{w = h}")();
+
+		Shape.n = Any.s + (0, -20);
+		Ellipse.ne = Shape.s + (-10, -20);
+		Rectangle.nw = Shape.s + (10, -20);
+		Circle.n = Ellipse.s + (0, -20);
+		Square.n = Rectangle.s + (0, -20);
+
+		drawObjects(Any, Shape, Ellipse, Rectangle, Circle, Square);
+		link(inheritance)(Ellipse.n -- Shape.s);
+		link(inheritance)(Rectangle.n -- Shape.s);
+		link(inheritance)(Circle.n -- Ellipse.s);
+		link(inheritance)(Square.n -- Rectangle.s);
+		link(inheritance)(Shape.n -- Any.s);
+
+	\end{emp}
+	\caption{Beispiel einer Klassenhierarchie}
+	\label{fig:covariance}
+\end{figure}
+
+Eine Implementation in Scala könnte wie folgt aussehen: 
+
+\lstset{float=ht,language=scala,caption={Eine Klassenkonstellation},label=lst:classConstellation}
+\lstinputlisting{src/shapes/Shapes.scala}
+
+Auffällig ist hier, dass die Klammern bei den Funktionsaufrüfen \emph{this.getLabel} 
+und \emph{this.getShapeInfo} weggelassen wurde. Dies ist erlaubt, solange eine Funktion
+keine Argumente erwartet. \emph{Shape} hat ausserdem einen Primary Constructor, welcher prüft,
+dass die Positionsargumente positiv sind.
+
+\section{Timer mit anonymer Funktion}
+\label{sec:bspAnonymous}
+
+Dieses Beispiel ruft jede Sekunde eine Funktion auf, die als
+anonyme Funktion übergeben wurde.
+Quelle: \cite{scalaTutorial}
+
+\lstset{float=ht,language=scala,caption={Timer mit anonymer Funktion},label=lst:timerAnonymous}
+\lstinputlisting{src/anonymousTimer.scala}
+
+\section{Case Classes und Pattern Matching}
+\label{sec:caseClasses}
+
+Dieses Beispiel (Quelle \cite{odersky}) bietet eine Datenstruktur
+bestehend aus Case Classes, um arithmetische Ausdrücke zu
+repräsentieren. Zusätzlich definiert es eine Funktion mit Pattern
+Matching, welche diese Ausdrücke vereinfachen kann.  Namentlich wird
+folgendes gemacht:
+
+\begin{itemize}
+\item Doppelte Negation wird entfernt: $--15$ wird zu $-15$
+\item Addition mit 0 wird entfernt: $3 + 0$ wird zu $3$
+\item Multiplikation mit 1 wird entfernt: $42 * 1$ wird zu $42$
+\end{itemize}
+
+\lstset{float=ht,language=scala,caption={Vereinfachen von arithmetischen Ausdrücken mit Pattern Matching},label=lst:patternMatching}
+\lstinputlisting{src/ExpressionSimplifier/ExpressionSimplifier.scala}
