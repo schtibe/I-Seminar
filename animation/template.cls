@@ -242,7 +242,7 @@
         Eine Seminararbeit an der Berner Fachhochschule Abteilung Technik und Informatik \\
         \vspace{0.1cm}
         von \@author\\
-        betreut von Professor Rolf Haenni\symbolfootnote[3]{\href{mailto:rolf.haenni@bfh.ch}{rolf.haenni@bfh.ch}}\\
+        betreut von Professor Jürgen Eckerle\symbolfootnote[3]{\href{mailto:juergen.eckerle@bfh.ch}{juergen.eckerle@bfh.ch}}\\
         \vspace{0.2cm}
         \@date
         \vspace{0.5cm}
